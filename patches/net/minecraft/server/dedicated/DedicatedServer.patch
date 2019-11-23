@@ -1,0 +1,37 @@
+209c209
+<          LOGGER.info((String)"Done ({})! For help, type \"help\"", (Object)var14);
+---
+>          LOGGER.info((String)"Done ({})! For help, type \"help\". - VanillaPlus", (Object)var14);
+290,292c290,292
+<    public CrashReport fillReport(CrashReport var1) {
+<       var1 = super.fillReport(var1);
+<       var1.getSystemDetails().setDetail("Is Modded", () -> {
+---
+>    public CrashReport fillReport(CrashReport report) {
+>       report = super.fillReport(report);
+>       report.getSystemDetails().setDetail("Is Modded", () -> {
+296c296
+<       var1.getSystemDetails().setDetail("Type", () -> {
+---
+>       report.getSystemDetails().setDetail("Type", () -> {
+299c299
+<       return var1;
+---
+>       return report;
+546,549c546,556
+<    // $FF: synthetic method
+<    public PlayerList getPlayerList() {
+<       return this.getPlayerList();
+<    }
+---
+>    // vanilla-plus {
+>    @Override
+>    public boolean bungeeCordEnabled(){
+>       return settings.getProperties().bungeecord;
+>    }
+>    // }
+> 
+>    // // $FF: synthetic method
+>    // public PlayerList getPlayerList() {
+>    //    return this.getPlayerList();
+>    // }

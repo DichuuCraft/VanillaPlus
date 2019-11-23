@@ -1,0 +1,64 @@
+823a824,825
+>          ServerLevel l = var3;
+> 
+825c827
+<             return var3.getLevelData().getLevelName() + " " + Registry.DIMENSION_TYPE.getKey(var3.dimension.getType());
+---
+>             return l.getLevelData().getLevelName() + " " + Registry.DIMENSION_TYPE.getKey(l.dimension.getType());
+871a874,875
+>       OptionSpecBuilder hasGui = var1.accepts("gui");// vanilla-plus
+> 
+911c915,916
+<          if (var27 && !GraphicsEnvironment.isHeadless()) {
+---
+>          // vanilla-plus {
+>          if (var15.has((OptionSpec)hasGui) && !GraphicsEnvironment.isHeadless()) {
+914c919
+< 
+---
+>          // }
+1000c1005
+<    public CrashReport fillReport(CrashReport var1) {
+---
+>    public CrashReport fillReport(CrashReport report) {
+1002c1007
+<          var1.getSystemDetails().setDetail("Player Count", () -> {
+---
+>          report.getSystemDetails().setDetail("Player Count", () -> {
+1007c1012
+<       var1.getSystemDetails().setDetail("Data Packs", () -> {
+---
+>       report.getSystemDetails().setDetail("Data Packs", () -> {
+1026c1031
+<          var1.getSystemDetails().setDetail("Server Id", () -> {
+---
+>          report.getSystemDetails().setDetail("Server Id", () -> {
+1031c1036
+<       return var1;
+---
+>       return report;
+1723,1726c1728,1736
+<    // $FF: synthetic method
+<    public boolean shouldRun(Runnable var1) {
+<       return this.shouldRun((TickTask)var1);
+<    }
+---
+>    // // $FF: synthetic method
+>    // public boolean shouldRun(Runnable var1) {
+>    //    return this.shouldRun((TickTask)var1);
+>    // }
+> 
+>    // // $FF: synthetic method
+>    // public Runnable wrapRunnable(Runnable var1) {
+>    //    return this.wrapRunnable(var1);
+>    // }
+1728,1730c1738,1740
+<    // $FF: synthetic method
+<    public Runnable wrapRunnable(Runnable var1) {
+<       return this.wrapRunnable(var1);
+---
+>    // vanilla-plus {
+>    public boolean bungeeCordEnabled(){
+>       return false;
+1731a1742
+>    // }

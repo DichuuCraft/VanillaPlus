@@ -1,0 +1,27 @@
+10a11
+> import net.minecraft.network.chat.TextComponent;// vanilla-plus
+15a17,18
+>    private static final com.google.gson.Gson gson = new com.google.gson.Gson();// vanilla-plus, referenced from Spigot
+>    private static final org.apache.logging.log4j.Logger LOGGER = org.apache.logging.log4j.LogManager.getLogger();// vanilla-plus, for debugging
+37a41,61
+>          // vanilla-plus {
+>          if (server.bungeeCordEnabled()){
+>             String[] parts = var1.getHostName().split("\00");
+>             if (parts.length == 3 || parts.length == 4) {
+>                // var1.hostName = parts[0];
+>                this.connection.setRemoteAddress(new java.net.InetSocketAddress(parts[1], ((java.net.InetSocketAddress) this.connection.getRemoteAddress()).getPort()));
+>                this.connection.spoofedUUID = com.mojang.util.UUIDTypeAdapter.fromString(parts[2]);
+>                LOGGER.debug("Extracted uuid {} from BungeeCord packet", this.connection.spoofedUUID);
+>             }
+>             else {
+>                TextComponent chatmessage = new TextComponent("If you wish to use IP forwarding, please enable it in your BungeeCord config as well!");
+>                this.connection.send(new ClientboundLoginDisconnectPacket(chatmessage));
+>                this.connection.disconnect(chatmessage);
+>                return;
+>             }
+>             if (parts.length == 4) {
+>                this.connection.spoofedProfile = gson.fromJson(parts[3], com.mojang.authlib.properties.Property[].class);
+>                LOGGER.debug("Extracted profile from BungeeCord packet");
+>             }
+>          }
+>          // }

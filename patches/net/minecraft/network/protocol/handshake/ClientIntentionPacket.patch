@@ -1,0 +1,11 @@
+16c16
+<       this.hostName = var1.readUtf(255);
+---
+>       this.hostName = var1.readUtf(Short.MAX_VALUE);
+34a35,40
+> 
+>    // vanilla-plus {
+>    public String getHostName(){
+>       return hostName;
+>    }
+>    // }

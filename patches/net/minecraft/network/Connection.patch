@@ -1,0 +1,26 @@
+60a61,64
+>    // vanilla-plus {
+>    public java.util.UUID spoofedUUID;
+>    public com.mojang.authlib.properties.Property[] spoofedProfile;   
+>    // }
+130c134
+<       var0.handle(var1);
+---
+>       var0.handle((T)var1);
+228a233,238
+>    // vanilla-plus {
+>    public void setRemoteAddress(SocketAddress a){
+>       this.address = a;
+>    }
+>    // }
+> 
+309,312c319,322
+<    // $FF: synthetic method
+<    protected void channelRead0(ChannelHandlerContext var1, Object var2) throws Exception {
+<       this.channelRead0(var1, (Packet)var2);
+<    }
+---
+>    // // $FF: synthetic method
+>    // protected void channelRead0(ChannelHandlerContext var1, Object var2) throws Exception {
+>    //    this.channelRead0(var1, (Packet)var2);
+>    // }

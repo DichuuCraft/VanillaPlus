@@ -1,0 +1,20 @@
+116d115
+< 
+133a133,149
+>          // vanilla-plus {
+>          UUID uuid;
+>          if (this.connection.spoofedUUID != null){
+>             uuid = this.connection.spoofedUUID;
+>          }
+>          else {
+>             uuid = Player.createPlayerUUID(this.gameProfile.getName());
+>          }
+>          LOGGER.info("uuid of player {} is {}", this.gameProfile.getName(), uuid);
+>          this.gameProfile = new GameProfile(uuid, this.gameProfile.getName());
+>          
+>          if (this.connection.spoofedProfile != null){
+>             for (com.mojang.authlib.properties.Property property: this.connection.spoofedProfile){
+>                this.gameProfile.getProperties().put(property.getName(), property);
+>             }
+>          }
+>          // }

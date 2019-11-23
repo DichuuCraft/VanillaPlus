@@ -1,0 +1,10 @@
+23a24
+>    public final boolean bungeecord = this.get("bungeecord", false); // vanilla-plus
+113,115c114,116
+<    protected Settings reload(Properties var1) {
+<       return this.reload(var1);
+<    }
+---
+>    // protected Settings reload(Properties var1) {
+>    //    return this.reload(var1);
+>    // }

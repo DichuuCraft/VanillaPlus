@@ -30,6 +30,7 @@ dependencies {
 }
 
 task patchJar(type: Jar, dependsOn: "build"){
+    baseName = rootProject.name + '-1.15'
     manifest {
         attributes("Main-Class": mainClassName)
     }

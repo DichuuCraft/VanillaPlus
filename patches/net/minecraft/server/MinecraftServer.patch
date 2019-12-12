@@ -1,43 +1,35 @@
-823a824,825
->          ServerLevel l = var3;
+840a841,842
+>          ServerLevel sl = var3;
 > 
-825c827
+842c844
 <             return var3.getLevelData().getLevelName() + " " + Registry.DIMENSION_TYPE.getKey(var3.dimension.getType());
 ---
->             return l.getLevelData().getLevelName() + " " + Registry.DIMENSION_TYPE.getKey(l.dimension.getType());
-871a874,875
->       OptionSpecBuilder hasGui = var1.accepts("gui");// vanilla-plus
-> 
-911c915,916
+>             return sl.getLevelData().getLevelName() + " " + Registry.DIMENSION_TYPE.getKey(sl.dimension.getType());
+880a883
+>       OptionSpecBuilder gui = var1.accepts("gui");
+928c931
 <          if (var27 && !GraphicsEnvironment.isHeadless()) {
 ---
->          // vanilla-plus {
->          if (var15.has((OptionSpec)hasGui) && !GraphicsEnvironment.isHeadless()) {
-914c919
-< 
+>          if (var15.has((OptionSpec)gui) && !GraphicsEnvironment.isHeadless()) {
+1025c1028
+<          StringBuilder var1 = new StringBuilder();
 ---
->          // }
-1000c1005
-<    public CrashReport fillReport(CrashReport var1) {
+>          StringBuilder sb = new StringBuilder();
+1030,1031c1033,1034
+<             if (var1.length() > 0) {
+<                var1.append(", ");
 ---
->    public CrashReport fillReport(CrashReport report) {
-1002c1007
-<          var1.getSystemDetails().setDetail("Player Count", () -> {
+>             if (sb.length() > 0) {
+>                sb.append(", ");
+1034c1037
+<             var1.append(var3.getId());
 ---
->          report.getSystemDetails().setDetail("Player Count", () -> {
-1007c1012
-<       var1.getSystemDetails().setDetail("Data Packs", () -> {
+>             sb.append(var3.getId());
+1036c1039
+<                var1.append(" (incompatible)");
 ---
->       report.getSystemDetails().setDetail("Data Packs", () -> {
-1026c1031
-<          var1.getSystemDetails().setDetail("Server Id", () -> {
----
->          report.getSystemDetails().setDetail("Server Id", () -> {
-1031c1036
-<       return var1;
----
->       return report;
-1723,1726c1728,1736
+>                sb.append(" (incompatible)");
+1757,1760c1760,1768
 <    // $FF: synthetic method
 <    public boolean shouldRun(Runnable var1) {
 <       return this.shouldRun((TickTask)var1);
@@ -52,7 +44,7 @@
 >    // public Runnable wrapRunnable(Runnable var1) {
 >    //    return this.wrapRunnable(var1);
 >    // }
-1728,1730c1738,1740
+1762,1764c1770,1772
 <    // $FF: synthetic method
 <    public Runnable wrapRunnable(Runnable var1) {
 <       return this.wrapRunnable(var1);
@@ -60,5 +52,5 @@
 >    // vanilla-plus {
 >    public boolean bungeeCordEnabled(){
 >       return false;
-1731a1742
+1765a1774
 >    // }
